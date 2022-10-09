@@ -21,16 +21,34 @@ special_list = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+",
 special_list = random.sample(special_list, k=len(special_list))
 digit_list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
 digit_list = random.sample(digit_list, k=len(digit_list))
-generate_list = []
+generate_list = upper_list + lower_list + special_list + digit_list
 generate_from = []
 counter = 0
 password = ""
+
+
+def decision_validator(decision_to_validate: str):
+    if decision_to_validate.isalpha() and decision_to_validate == "t":
+        return True
+    elif decision_to_validate.isalpha() and decision_to_validate == "T":
+        return True
+    elif decision_to_validate.isalpha() and decision_to_validate == "n":
+        return True
+    elif decision_to_validate.isalpha() and decision_to_validate == "N":
+        return True
+    elif decision_to_validate.isalpha() and decision_to_validate == "q":
+        return True
+    elif decision_to_validate.isalpha() and decision_to_validate == "Q":
+        return True
+    else:
+        return False
+    
 
 decision = input("Czy mam wygenerować dla Ciebie hasło (T/N)? ")
 if decision.isalpha() and decision == "n" or decision == "N" or decision == "q" or decision == "Q":
     print("Koniec programu.")
 else:
-    while not decision.isalpha():
+    while not decision_validator(decision):
         print("Nie wprowadzono prawidłowo decycji: T - tak, N - nie, Q - koniec programu. Spróbuj więc ponownie.")
         decision = input("Czy mam wygenerować dla Ciebie hasło (T/N)? ")
     else:
@@ -40,10 +58,10 @@ else:
             how_long = input("1) Z ilu znaków ma składać się Twoje hasło? ")
         else:
             how_long = int(how_long)
-            is_upper = input("2) Czy hasło ma zawierać wielkie litery (T/N)? ")
-            while not is_upper.isalpha() and is_upper != "t" and is_upper != "T" and is_upper != "n" and is_upper != "N" and is_upper != "q" and is_upper != "Q":
+            is_upper = input("2) Czy hasło ma obligatoryjnie zawierać wielkie litery (T/N)? ")
+            while not decision_validator(is_upper):
                 print("Nie wprowadzono prawidłowo decycji: T - tak, N - nie, Q - koniec programu. Spróbuj więc ponownie.")
-                is_upper = input("2) Czy hasło ma zawierać wielkie litery (T/N)? ")
+                is_upper = input("2) Czy hasło ma obligatoryjnie zawierać wielkie litery (T/N)? ")
             else:
                 if is_upper == "q" or is_upper == "Q":
                     print("Koniec programu.")
@@ -51,10 +69,12 @@ else:
                     if is_upper == "t" or is_upper == "T":
                         generate_from += random.sample(upper_list, k=1)  # zmienić logikę dodawania losowych znaków do listy
                         counter += 1
-                    is_lower = input("3) Czy hasło ma zawierać małe litery (T/N)? ")
-                    while not is_lower.isalpha() and is_lower != "t" and is_lower != "T" and is_lower != "n" and is_lower != "N" and is_lower != "q" and is_lower != "Q":
+                    # else:
+                    #     generate_list = [lower_list + special_list + digit_list]
+                    is_lower = input("3) Czy hasło ma obligatoryjnie zawierać małe litery (T/N)? ")
+                    while not decision_validator(is_lower):
                         print("Nie wprowadzono prawidłowo decycji: T - tak, N - nie, Q - koniec programu. Spróbuj więc ponownie.")
-                        is_lower = input("3) Czy hasło ma zawierać małe litery (T/N)? ")
+                        is_lower = input("3) Czy hasło ma obligatoryjnie zawierać małe litery (T/N)? ")
                     else:
                         if is_lower == "q" or is_lower == "Q":
                             print("Koniec programu.")
@@ -62,10 +82,12 @@ else:
                             if is_lower == "t" or is_lower == "T":
                                 generate_from += random.sample(lower_list, k=1)  # zmienić logikę dodawania losowych znaków do listy
                                 counter += 1
-                            is_special = input("4) Czy hasło ma zawierać znaki specjalne (T/N)? ")
-                            while not is_special.isalpha() and is_special != "t" and is_special != "T" and is_special != "n" and is_special != "N" and is_special != "q" and is_special != "Q":
+                            # else:
+                            #     generate_list = [special_list + digit_list]
+                            is_special = input("4) Czy hasło ma obligatoryjnie zawierać znaki specjalne (T/N)? ")
+                            while not decision_validator(is_special):
                                 print("Nie wprowadzono prawidłowo decycji: T - tak, N - nie, Q - koniec programu. Spróbuj więc ponownie.")
-                                is_special = input("4) Czy hasło ma zawierać znaki specjalne (T/N)? ")
+                                is_special = input("4) Czy hasło ma obligatoryjnie zawierać znaki specjalne (T/N)? ")
                             else:
                                 if is_special == "q" or is_special == "Q":
                                     print("Koniec programu.")
@@ -73,10 +95,12 @@ else:
                                     if is_special == "t" or is_special == "T":
                                         generate_from += random.sample(special_list, k=1)  # zmienić logikę dodawania losowych znaków do listy
                                         counter += 1
-                                    is_digit = input("5) Czy hasło ma zawierać cyfry (T/N)? ")
-                                    while not is_digit.isalpha() and is_digit != "t" and is_digit != "T" and is_digit != "n" and is_digit != "N" and is_digit != "q" and is_digit != "Q":
+                                    # else:
+                                    #     generate_list = [digit_list]
+                                    is_digit = input("5) Czy hasło ma obligatoryjnie zawierać cyfry (T/N)? ")
+                                    while not decision_validator(is_digit):
                                         print("Nie wprowadzono prawidłowo decycji: T - tak, N - nie, Q - koniec programu. Spróbuj więc ponownie.")
-                                        is_digit = input("5) Czy hasło ma zawierać cyfry (T/N)? ")
+                                        is_digit = input("5) Czy hasło ma obligatoryjnie zawierać cyfry (T/N)? ")
                                     else:
                                         if is_digit == "q" or is_digit == "Q":
                                             print("Koniec programu.")
@@ -84,10 +108,12 @@ else:
                                             if is_digit == "t" or is_digit == "T":
                                                 generate_from += random.sample(digit_list, k=1)   # zmienić logikę dodawania losowych znaków do listy
                                                 counter += 1
+                                            # else:
+                                            #     generate_list = []
                                             if counter > how_long:
                                                 print(f"Podana przez Ciebie ilość znaków hasła ({how_long}) nie spełni wszystkich wybranych warunków ({counter}).")
                                                 new_decision = input(f"Czy zatem wygenerować dla Ciebie hasło o długości {counter} znaków? ")
-                                                while not new_decision.isalpha() and new_decision != "t" and new_decision != "T" and new_decision != "n" and new_decision != "N" and new_decision != "q" and new_decision != "Q":
+                                                while not decision_validator(new_decision):
                                                     print("Nie wprowadzono prawidłowo decycji: T - tak, N - nie, Q - koniec programu. Spróbuj więc ponownie.")
                                                     new_decision = input(f"Czy zatem wygenerować dla Ciebie hasło o długości {counter} znaków? ")
                                                 else:
