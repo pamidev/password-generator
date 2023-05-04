@@ -55,7 +55,7 @@ You can check your Python version by typing in terminal:\
 
 ## Usage
 How does one go about using it? It's simple. :-) In terminal type:\
-`python password_generator.py`\
+`python password-generator.py`\
 and press ENTER.
 
 
