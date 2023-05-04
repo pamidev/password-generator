@@ -50,13 +50,15 @@ Python version should not matter here, although the program was written and test
 There is no need to install anything extra.
 
 You can check your Python version by typing in terminal:\
-`python --version`
-
+```bash
+$ python --version
+```
 
 ## Usage
-How does one go about using it? It's simple. :-) In terminal type:\
-`python password-generator.py`\
-and press ENTER.
+How does one go about using it? It's simple. :-) Type in terminal:
+```bash
+$ python password-generator.py
+```
 
 
 ## Acknowledgements
