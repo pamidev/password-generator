@@ -21,7 +21,7 @@ def password_generator(pass_length: int = 12):
 def main():
     try:
         length = int(input("Enter password length (at least 12 characters): "))
-        if length >= 8:
+        if length >= 12:
             pwd = password_generator(length)
             print(f"Your strong password is: {pwd}")
         else:
