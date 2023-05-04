@@ -18,7 +18,7 @@ The purpose of the program is to generate cryptographically strong random passwo
 Thanks to this project, I learned how to use Python's modules like _string_ and _secrets_ with 
 _try-except_ block and _while_ loop.
 
-> **Remember that** secrets should be used in preference to the default pseudo-random number 
+> **Remember that** _secrets_ module should be used in preference to the default pseudo-random number 
 > generator in the random module, which is designed for modelling and simulation, 
 > not security or cryptography.
 
