@@ -44,12 +44,14 @@ _try-except_ block and _while_ loop.
 
 ## Setup
 I assume You know how to cloning this repository. If not, I refer you to 
-[this publication](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository)
+[this publication](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 Python version should not matter here, although the program was written and tested on version 3.11.3. 
 There is no need to install anything extra.
 
-You can check your Python version by typing in terminal:\
+> If You don't have any Python version, download and install [from here](https://www.python.org/).
+
+You can check your Python version by typing in terminal:
 ```bash
 $ python --version
 ```
@@ -63,5 +65,5 @@ $ python password-generator.py
 
 ## Acknowledgements
 - This program was inspired by one of exercises of
-[the Practical Python](https://praktycznypython.pl/) educational program
-- Many thanks to [Krzysztof Mędrela](https://medrela.com/)
+[the Practical Python](https://praktycznypython.pl/) educational program.
+- Many thanks to [Krzysztof Mędrela](https://medrela.com/).
