@@ -1,5 +1,5 @@
 # Password Generator
-> This simple Python program helps generate **very strong** passwords. 
+> This simple Python program helps generate very strong passwords. 
 > If you don't have any ideas for your passwords, this program will be great.
 
 
@@ -18,8 +18,8 @@ The purpose of the program is to generate cryptographically strong random passwo
 Thanks to this project, I learned how to use Python's modules like _string_ and _secrets_ with 
 _try-except_ block and _while_ loop.
 
-> **Remember that** _secrets_ module should be used in preference to the default pseudo-random number 
-> generator in the random module, which is designed for modelling and simulation, 
+> Remember that _secrets_ module should be used in preference to the default pseudo-random number 
+> generator in the _random_ module, which is designed for modelling and simulation, 
 > not security or cryptography.
 
 
@@ -28,6 +28,7 @@ _try-except_ block and _while_ loop.
 - from Python's standard library:
   - [_secrets_](https://docs.python.org/3/library/secrets.html) module
   - [_string_](https://docs.python.org/3/library/string.html) module
+- [PyTest](https://pytest.org/) - version 7.3.1
 
 
 ## Features
@@ -56,12 +57,32 @@ You can check your Python version by typing in terminal:
 $ python --version
 ```
 
+If You want to test my program, You need to create and activate _virtual environment_ like this:
+```bash
+$ python -m venv .venv
+$ cd .venv\Scripts
+$ activate
+$ cd ..
+$ cd ..
+```
+and install _pytest_ package with dependencies in the previously created _virtual environment_:
+``` bash
+$ pip install -r tests_requirements.txt
+```
+or
+``` bash
+$ pip install -U pytest
+```
+
 ## Usage
 How does one go about using it? It's simple. :-) Type in terminal:
 ```bash
-$ python password-generator.py
+$ python password_generator.py
 ```
-
+or for testing (check [Setup](#setup) first):
+```bash
+$ pytest tests_password_generator.py
+```
 
 ## Acknowledgements
 - This program was inspired by one of exercises of
